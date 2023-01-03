@@ -39,9 +39,10 @@ def test_proxy(proxy: str):
     try:
         prxy = {"https" : "http://{}".format(proxy)}
         r = get(url=api_url, proxies=prxy, timeout=15)
-        success_proxies.append(proxy)
-        log_green("Proxy is working: {}".format(proxy[:-1]))
-        tried = tried + 1
+        if(r.json().get("origin") != None):
+            success_proxies.append(proxy)
+            log_green("Proxy is working: {}".format(proxy[:-1]))
+            tried = tried + 1
     except:
         tried = tried + 1
         pass
