@@ -4,6 +4,7 @@
 from requests import get
 from threading import Thread
 from util.log import *
+from time import sleep
 
 api_url = "https://httpbin.org/ip"
 proxyscrape_api_url = "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=https&timeout=10000&country=all&ssl=all&anonymity=all"
@@ -65,7 +66,7 @@ def main() -> None:
 
     #Wait till the process completed
     while tried < p_len:
-        None
+        sleep(1) #for cpu saving
     write_proxies()
 
 main()
