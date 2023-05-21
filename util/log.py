@@ -17,3 +17,5 @@ def log_green(msg: str):
 def log_red(msg: str):
     print(Fore.RED + "[ERROR] " + Fore.WHITE + msg)
     append_log(msg=f"[{datetime.now().utcnow()}] {msg}")
+def just_log(msg: str):
+    append_log(msg=f"[{datetime.now().utcnow()}] {msg}")
